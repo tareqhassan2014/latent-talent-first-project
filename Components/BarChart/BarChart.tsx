@@ -92,7 +92,7 @@ export function BarChart() {
           </select>
         </section>
         <section className=" mt-10 ">
-          <Chart options={options2} series={series2} type="bar" height={390} />
+          <Chart options={options2} series={series2} type="bar" height={300} />
         </section>
       </div>
     </>

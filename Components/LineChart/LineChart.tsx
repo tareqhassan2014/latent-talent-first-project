@@ -9,20 +9,12 @@ export default function LineChart() {
     chart: {
       height: "auto",
       type: "line",
-      dropShadow: {
-        enabled: true,
-        color: "#000",
-        top: 18,
-        left: 7,
-        blur: 10,
-        opacity: 0.2,
-      },
       toolbar: {
         show: false,
       },
     },
     markers: {
-      size: 6, // Marker size
+      size: 4, // Marker size
       colors: ["#fff"], // Marker color
       strokeColors: ["#0C359E", "#59B4C3"], // Marker stroke color
       strokeWidth: 2, // Marker stroke width
@@ -79,6 +71,7 @@ export default function LineChart() {
   return (
     <>
       <div className="py-10 px-5 shadow-md shadow-slate-400 ">
+        {/* top head section  */}
         <section className=" flex justify-between items-center">
           <div className=" flex justify-between items-center gap-10">
             {/* Total Sale */}
@@ -111,12 +104,15 @@ export default function LineChart() {
               </div>
             </section>
           </div>
+
           <div className=" flex justify-between gap-5 bg-slate-100 p-2 rounded-lg">
             <button className=" bg-white px-3 py-1 rounded-lg">Day</button>
             <button className=" bg-white px-3 py-1 rounded-lg">Week</button>
             <button className=" bg-white px-3 py-1 rounded-lg">Month</button>
           </div>
         </section>
+
+        {/* bottom chart section */}
         <section className="  mt-10 ">
           <Chart
             dir="ltr"
@@ -124,7 +120,7 @@ export default function LineChart() {
             series={series}
             options={options}
             width="100%"
-            height={380}
+            height={290}
           />
         </section>
       </div>
