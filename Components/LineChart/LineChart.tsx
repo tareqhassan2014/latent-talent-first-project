@@ -6,7 +6,7 @@ import Chart from "react-apexcharts";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function LineChart() {
-  const [activeBtn, setActiveBtn] = useState<String>("day");
+  const [activeBtn, setActiveBtn] = useState<string>("day");
 
   let SaleData = activeBtn === 'day' ? [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25, 14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25] : activeBtn === 'week' ? [15, 10, 15, 17, 19, 25, 27] : [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25];
   let Categories = activeBtn === 'day' ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] : activeBtn === 'week' ? ["M", "T", "W", "T", "F", "S", "S"] : ["Sep", "Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",];

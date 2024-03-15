@@ -5,17 +5,27 @@
 import dynamic from "next/dynamic";
 import Chart from "react-apexcharts";
 import LineChart from "../LineChart/LineChart";
+import { useState } from "react";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export function BarChart() {
+
+  const [activeBtn, setActiveBtn] = useState<string>("day");
+  console.log(activeBtn)
+
+  let SaleData = activeBtn === 'day' ? [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25, 14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25] : activeBtn === 'week' ? [15, 10, 15, 17, 19, 25, 27] : [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25];
+  let Categories = activeBtn === 'day' ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] : activeBtn === 'week' ? ["M", "T", "W", "T", "F", "S", "S"] : ["Sep", "Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",];
+  let RevenueData = activeBtn === 'day' ? [34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35, 34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35] : activeBtn === 'week' ? [34, 25, 30, 25, 37, 29, 35] : [34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35];
+
+
   const series2 = [
     {
       name: "Sales",
-      data: [30, 40, 55, 70, 50, 65, 79],
+      data: SaleData,
     },
     {
       name: "Revenue",
-      data: [10, 20, 25, 10, 20, 25, 10],
+      data: RevenueData,
     },
   ];
 
@@ -52,7 +62,7 @@ export function BarChart() {
       },
     },
     xaxis: {
-      categories: ["M", "T", "W", "T", "F", "S", "S"],
+      categories: Categories,
     },
     yaxis: {
       min: 0,
@@ -74,6 +84,10 @@ export function BarChart() {
     },
   };
 
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setActiveBtn(e.target.value);
+  }
+
   return (
     <>
       <div className="py-10 px-5 shadow-md shadow-slate-400 ">
@@ -83,12 +97,14 @@ export function BarChart() {
             name=""
             id=""
             className=" focus:outline-none bg-slate-100 p-2 rounded-lg"
+            value={activeBtn}
+            onChange={handleSelectChange}
           >
-            <option value="" className=" ">
-              This Week
+            <option value="day" className=" ">
+              This Day
             </option>
-            <option value="">This Month</option>
-            <option value="">This Year</option>
+            <option value="week" >This Week</option>
+            <option value="month" >This Month</option>
           </select>
         </section>
         <section className=" mt-10 ">
