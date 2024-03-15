@@ -7,7 +7,7 @@ const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 export default function LineChart() {
   const options: ApexCharts.ApexOptions = {
     chart: {
-      height: 350,
+      height: "auto",
       type: "line",
       dropShadow: {
         enabled: true,
@@ -61,14 +61,7 @@ export default function LineChart() {
     },
     colors: ["#0C359E", "#59B4C3"],
     legend: {
-      show: true,
-      position: "top",
-      horizontalAlign: "left",
-      customLegendItems: ["Sales", "Revenue"],
-      offsetY: 5,
-      markers: {
-        radius: 50, // Adjust the marker size if needed
-      },
+      show: false,
     },
   };
 
@@ -84,28 +77,30 @@ export default function LineChart() {
   ];
 
   return (
-    <div className="bg-white">
-      {/* line point chart */}
-      <section className=" col-span-7 ">
-        <div className=" flex justify-between mb-5">
-          <div></div>
+    <>
+      <div className="py-10 px-5 shadow-md shadow-slate-400 ">
+        <section className=" flex justify-between items-center">
+          <div className=" flex justify-between items-center gap-10">
+            <p>Sale</p>
+            <p>Revenue</p>
+          </div>
           <div className=" flex justify-between gap-5 bg-slate-100 p-2 rounded-lg">
             <button className=" bg-white px-3 py-1 rounded-lg">Day</button>
             <button className=" bg-white px-3 py-1 rounded-lg">Week</button>
             <button className=" bg-white px-3 py-1 rounded-lg">Month</button>
           </div>
-        </div>
-        <div>
+        </section>
+        <section className="  mt-10 ">
           <Chart
             dir="ltr"
             type="area"
             series={series}
             options={options}
             width="100%"
-            height="auto"
+            height={380}
           />
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

@@ -1,16 +1,16 @@
 import { BarChart } from "../BarChart/BarChart";
 import LineChart from "../LineChart/LineChart";
 
-export function PointChart() {
+export function ChartTable() {
   return (
-    <div className=" max-w-[1280px] mx-auto mt-10 grid grid-cols-12 gap-10">
+    <div className=" max-w-[1280px] mx-auto mt-10 grid lg:grid-cols-12 grid-cols-2 gap-10">
       {/* line chart */}
-      <section className=" col-span-7 ">
+      <section className=" lg:col-span-8 col-span-1">
         <LineChart />
       </section>
 
       {/* Column Bar chart */}
-      <section className=" col-span-5 ">
+      <section className=" lg:col-span-4 col-span-1 ">
         <BarChart />
       </section>
     </div>
