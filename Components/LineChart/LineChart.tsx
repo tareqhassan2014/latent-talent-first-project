@@ -1,10 +1,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import Chart from "react-apexcharts";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export default function LineChart() {
+  const [activeBtn, setActiveBtn] = useState<String>("day");
+
+  let SaleData = activeBtn === 'day' ? [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25, 14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25] : activeBtn === 'week' ? [15, 10, 15, 17, 19, 25, 27] : [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25];
+  let Categories = activeBtn === 'day' ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] : activeBtn === 'week' ? ["M", "T", "W", "T", "F", "S", "S"] : ["Sep", "Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug",];
+  let RevenueData = activeBtn === 'day' ? [34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35, 34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35] : activeBtn === 'week' ? [34, 25, 30, 25, 37, 29, 35] : [34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35];
+
   const options: ApexCharts.ApexOptions = {
     chart: {
       height: "auto",
@@ -27,20 +34,7 @@ export default function LineChart() {
       curve: "straight",
     },
     xaxis: {
-      categories: [
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-      ],
+      categories: Categories,
     },
     yaxis: {
       min: 0,
@@ -60,11 +54,11 @@ export default function LineChart() {
   const series = [
     {
       name: "Sales",
-      data: [14, 15, 10, 15, 17, 19, 25, 27, 10, 19, 20, 25],
+      data: SaleData,
     },
     {
       name: "Revenue",
-      data: [34, 25, 30, 25, 37, 29, 35, 47, 40, 32, 29, 35],
+      data: RevenueData,
     },
   ];
 
@@ -105,10 +99,32 @@ export default function LineChart() {
             </section>
           </div>
 
+          {/* button section */}
           <div className=" flex justify-between gap-5 bg-slate-100 p-2 rounded-lg">
-            <button className=" bg-white px-3 py-1 rounded-lg">Day</button>
-            <button className=" bg-white px-3 py-1 rounded-lg">Week</button>
-            <button className=" bg-white px-3 py-1 rounded-lg">Month</button>
+            <button
+              className={`px-3 py-1 transition-all duration-300 ease-in ${
+                activeBtn === "day" ? "bg-white rounded-lg" : ""
+              }`}
+              onClick={() => setActiveBtn("day")}
+            >
+              Day
+            </button>
+            <button
+              className={`px-3 py-1 transition-all duration-300 ease-in ${
+                activeBtn === "week" ? "bg-white rounded-lg" : ""
+              }`}
+              onClick={() => setActiveBtn("week")}
+            >
+              Week
+            </button>
+            <button
+              className={`px-3 py-1 transition-all duration-300 ease-in ${
+                activeBtn === "month" ? "bg-white rounded-lg" : ""
+              }`}
+              onClick={() => setActiveBtn("month")}
+            >
+              Month
+            </button>
           </div>
         </section>
 
