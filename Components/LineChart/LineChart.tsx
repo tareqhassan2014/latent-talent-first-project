@@ -89,10 +89,10 @@ export default function LineChart() {
       <section className=" col-span-7 ">
         <div className=" flex justify-between mb-5">
           <div></div>
-          <div className=" flex justify-between gap-5 ">
-            <button>Day</button>
-            <button>Week</button>
-            <button>Month</button>
+          <div className=" flex justify-between gap-5 bg-slate-100 p-2 rounded-lg">
+            <button className=" bg-white px-3 py-1 rounded-lg">Day</button>
+            <button className=" bg-white px-3 py-1 rounded-lg">Week</button>
+            <button className=" bg-white px-3 py-1 rounded-lg">Month</button>
           </div>
         </div>
         <div>
