@@ -1,4 +1,4 @@
-import { PointChart } from "@/Components/PointChart/PointChart";
+import { PointChart } from "@/Components/charts/PointChart";
 
 export default function Home() {
   return (

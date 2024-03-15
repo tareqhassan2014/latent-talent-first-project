@@ -152,32 +152,24 @@ export function PointChart() {
   };
 
   return (
-    <div className=" max-w-[1280px] mx-auto mt-10 grid grid-cols-12 gap-10">
+    <div className="m-12 grid grid-cols-3 gap-10">
       {/* line point chart */}
-      <section className=" col-span-7 ">
-        {/* <h1>Point Chart</h1>
-        <hr className=" h-1 " />
-        <ReactApexChart
-          type="line"
-          options={options}
-          series={series}
-          height="auto"
-          width="100%"
-          className=" mt-10 "
-        /> */}
-      </section>
+      <section className="col-span-2"></section>
 
-      <section className=" col-span-5 ">
-        <div className=" flex justify-between">
-          <h1 className=" text-2xl font-semibold ">Profit this week</h1>
-          <select name="" id="" className=" focus:outline-none bg-slate-100 p-2 rounded-lg">
-            <option value="" className=" ">This Week</option>
-            <option value="">This Month</option>
-            <option value="">This Year</option>
-          </select>
-
-        </div>
-        <div className=" mt-10 ">
+      <section className="col-span-1">
+        <div className="border-2 border-gray-100 shadow-lg p-4">
+          <div className="flex items-center justify-between p-4">
+            <h1 className="text-2xl font-semibold ">Profit this week</h1>
+            <select
+              name=""
+              id=""
+              className=" focus:outline-none bg-slate-100 p-2 rounded-lg"
+            >
+              <option value="">This Week</option>
+              <option value="">This Month</option>
+              <option value="">This Year</option>
+            </select>
+          </div>
           <Chart options={options2} series={series2} type="bar" height={350} />
         </div>
       </section>
