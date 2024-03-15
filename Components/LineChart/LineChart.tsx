@@ -81,8 +81,35 @@ export default function LineChart() {
       <div className="py-10 px-5 shadow-md shadow-slate-400 ">
         <section className=" flex justify-between items-center">
           <div className=" flex justify-between items-center gap-10">
-            <p>Sale</p>
-            <p>Revenue</p>
+            {/* Total Sale */}
+            <section className=" flex gap-2 justify-start items-start">
+              <div>
+                <p className=" border-2 border-[#0C359E] p-[2px] rounded-full">
+                  <p className=" bg-[#0C359E] rounded-full h-3 w-3"></p>
+                </p>
+              </div>
+              <div>
+                <p>Total Sale</p>
+                <p>
+                  <span>12.04.2022</span> - <span>12.04.2022</span>
+                </p>
+              </div>
+            </section>
+
+            {/* Total Revenue */}
+            <section className=" flex gap-2 justify-start items-start">
+              <div>
+                <p className=" border-2 border-[#88E5F6] p-[2px] rounded-full">
+                  <p className=" bg-[#88E5F6] rounded-full h-3 w-3"></p>
+                </p>
+              </div>
+              <div>
+                <p>Total Revenue</p>
+                <p>
+                  <span>12.04.2022</span> - <span>12.04.2022</span>
+                </p>
+              </div>
+            </section>
           </div>
           <div className=" flex justify-between gap-5 bg-slate-100 p-2 rounded-lg">
             <button className=" bg-white px-3 py-1 rounded-lg">Day</button>
