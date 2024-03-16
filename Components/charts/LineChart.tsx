@@ -58,7 +58,7 @@ export default function LineChart() {
 
   return (
     <div className="p-4 shadow-lg border-2 border-gray-100">
-      <div className="flex justify-between items-center p-3">
+      <div className="flex md:flex-row flex-col gap-3 justify-between items-center p-3">
         <LineChartLegend />
         <LineChartTab activeTab={activeTab} setActiveTab={setActiveTab} />
       </div>

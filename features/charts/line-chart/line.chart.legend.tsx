@@ -2,28 +2,28 @@
 
 const LineChartLegend = () => {
   return (
-    <div className="flex justify-between items-center gap-10">
-      <div className="flex gap-2 justify-start items-start">
+    <div className="flex justify-between items-center md:gap-10 gap-2">
+      <div className="flex gap-2 justify-center items-start">
         <div>
-          <div className="border-2 border-[#0C359E] p-[2px] rounded-full">
-            <div className=" bg-[#0C359E] rounded-full h-3 w-3" />
+          <div className="border border-[#0C359E] p-0.5 rounded-full">
+            <div className="bg-[#0C359E] rounded-full h-2 w-2" />
           </div>
         </div>
-        <div>
-          <p style={{ color: "#0C359E" }}>Total Revenue</p>
-          <span>12.04.2022</span> - <span>12.04.2022</span>
+        <div className="-mt-0.5">
+          <p className="text-[#0C359E] text-sm">Total Revenue</p>
+          <span className="text-sm opacity-70">12.04.2022 - 12.04.2022</span>
         </div>
       </div>
 
-      <div className="flex gap-2 justify-start items-start">
+      <div className="flex gap-2 justify-center items-start">
         <div>
-          <div className="border-2 border-[#88E5F6] p-[2px] rounded-full">
-            <div className="bg-[#88E5F6] rounded-full h-3 w-3" />
+          <div className="border border-[#59B4C3] p-0.5 rounded-full">
+            <div className="bg-[#59B4C3] rounded-full h-2 w-2" />
           </div>
         </div>
-        <div>
-          <p style={{ color: "#88E5F6" }}>Total Sales</p>
-          <span>12.04.2022</span> - <span>12.04.2022</span>
+        <div className="-mt-0.5">
+          <p className="text-[#59B4C3] text-sm">Total Sales</p>
+          <span className="text-sm opacity-70">12.04.2022 - 12.04.2022</span>
         </div>
       </div>
     </div>

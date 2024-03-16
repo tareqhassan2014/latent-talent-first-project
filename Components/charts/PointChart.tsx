@@ -85,8 +85,8 @@ export function PointChart() {
 
   return (
     <div className="border-2 border-gray-100 shadow-lg p-4">
-      <div className="flex items-center justify-between p-4">
-        <h1 className="text-2xl font-semibold ">Profit this week</h1>
+      <div className="flex items-center justify-between gap-2 p-4">
+        <h1 className="md:text-2xl text-lg font-semibold ">Profit this week</h1>
         <PointChartsSelect
           value={selectedOption}
           onChange={handleOptionChange}
